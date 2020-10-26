@@ -1,0 +1,12 @@
+1. The computer will choose a random choice between "Rock", "Paper" and "Scissor".
+    Logic - 
+    = We will generate a random number between 1 - 100; if the number is in between
+    = less than 33    --> Computer will choose Rock
+    = 33 - 66         --> Computer will choose Paper
+    = greater than 66 --> Computer will choose Scissor  
+
+2. User Input will be taken.
+3. Input will be compared with computers choice
+    = if else statements
+4. According to rules, one of them will win.
+    = if else statements
