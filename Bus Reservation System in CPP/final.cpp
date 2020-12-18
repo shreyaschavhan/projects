@@ -5,7 +5,6 @@ using namespace std;
 
 static int count = 0;
 class bus{
-    // char bus_number[10];
     string bus_number;
     string bus_driver, arrival_time;
     string departure_time, from_where, to_where;
@@ -40,15 +39,12 @@ void bus :: new_bus(){
 
 void bus :: book_seat(){
     int seat_number;
-    // char bus_num[10];
     string bus_num;
-    // int row;
 book_again:
     cout << "Bus Number: ";
     cin >> bus_num;
     int i = 0;
     for(i = 0; i <= count; i++){
-        // if(strcmp(reservation[i].bus_number, bus_num) == 0){
         if((reservation[i].bus_number).compare(bus_num) == 0){
             break;
         }
@@ -56,8 +52,6 @@ book_again:
     while(i <= count){
         cout << "Seat Number: ";
         cin >> seat_number;
-        // cout << "In which Row: ";
-        // cin >> row;
         if(seat_number > 32){
             cout << "There are only 32 seats Available" << endl;
         }
@@ -88,12 +82,10 @@ void bus :: empty_bus(){
 
 void bus :: display(){
     int i;
-    // char bus_num[10];
     string bus_num;
     cout << "Enter bus number: ";
     cin >> bus_num;
     for(i = 0; i <= count; i++){
-        // if(!strcmp(reservation[i].bus_number, bus_num)){
         if(!(reservation[i].bus_number).compare(bus_num)){
             break;
         }
@@ -139,21 +131,13 @@ void bus :: empty_position(int l){
         for(int j = 0; j < 4; j++){
             s++;
             if(!strcmp(reservation[l].seat[i][j], "empty")){
-                // cout.width(5);
-                // cout.fill('a');
                 cout << setw(6) << s << ".";
-                // cout.width(10);
-                // cout.fill('b');
                 cout << setw(10);
                 cout << reservation[l].seat[i][j];
                 empty_seats++;
             }
             else{
-                // cout.width(5);
-                // cout.fill(' ');
                 cout << setw(6) << s << ".";
-                // cout.width(10);
-                // cout.fill(' ');
                 cout << setw(10);
                 cout << reservation[l].seat[i][j];
             }

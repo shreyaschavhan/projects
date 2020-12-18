@@ -16,7 +16,6 @@ public:
     void empty_bus();
     void display();
     void available_buses();
-    void empty_position(int);
 };
 bus reservation[10];
 
@@ -49,7 +48,7 @@ book_again:
     int i = 0;
     for(i = 0; i <= count; i++){
         // if(strcmp(reservation[i].bus_number, bus_num) == 0){
-        if((reservation[i].bus_number).compare(bus_num) == 0){
+        if(!(reservation[i].bus_number).compare(bus_num)){
             break;
         }
     }
@@ -82,6 +81,7 @@ void bus :: empty_bus(){
     for(int i = 0; i < 8; i++){
         for(int j = 0; j < 4; j++){
             strcpy(reservation[count].seat[i][j], "empty");
+            // reservation[count].seat[i][j] = "empty"; // variable = 'empty'
         }
     }
 }
@@ -114,13 +114,12 @@ void bus :: display(){
         }
         cout << endl;
 
-        reservation[0].empty_position(i);
         int a = 1;
         for(int k = 0; k < 8; k++){
             for(int l = 0; l < 4; l++){
                 a++;
                 if(strcmp(reservation[i].seat[k][l], "empty") != 0){
-                    cout << endl << "The seat number " << (a - 1) << " is reserved for " << reservation[i].seat[k][l] << "." << endl;
+                    cout << "The seat number " << (a - 1) << " is reserved for " << reservation[i].seat[k][l] << "." << endl;
                 }
             }
         }
@@ -131,38 +130,6 @@ void bus :: display(){
     }
 }
 
-void bus :: empty_position(int l){
-    int s = 0;
-    int empty_seats = 0;
-    for(int i = 0; i < 8; i++){
-        cout << endl;
-        for(int j = 0; j < 4; j++){
-            s++;
-            if(!strcmp(reservation[l].seat[i][j], "empty")){
-                // cout.width(5);
-                // cout.fill('a');
-                cout << setw(6) << s << ".";
-                // cout.width(10);
-                // cout.fill('b');
-                cout << setw(10);
-                cout << reservation[l].seat[i][j];
-                empty_seats++;
-            }
-            else{
-                // cout.width(5);
-                // cout.fill(' ');
-                cout << setw(6) << s << ".";
-                // cout.width(10);
-                // cout.fill(' ');
-                cout << setw(10);
-                cout << reservation[l].seat[i][j];
-            }
-        }
-    }
-    cout << endl;
-    cout << endl;
-    cout << "There are " << empty_seats << " seats empty in Bus no.: " << reservation[l].bus_number;
-}
 
 void bus :: available_buses(){
     for(int i = 0; i < count; i++){
